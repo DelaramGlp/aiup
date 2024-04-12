@@ -1,0 +1,153 @@
+
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix airo: <https://w3id.org/airo#> .
+
+@prefix aiup: <https://w3id.org/aiup#> .
+
+
+#---------------------------------------------------------
+#                       metadata
+#---------------------------------------------------------
+<https://w3id.org/aiup> a owl:Ontology, profile:Profile ;
+    profile:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
+    dcterms:title "AI Intended Use Policy" ;
+    dcterms:creator "Delaram Golpayegani", "Beatriz Esteves", "Harshvardhan J. Pandit", "Dave Lewis" . 
+
+
+
+
+<https://w3id.org/aiup#>
+    a skos:Collection ;
+    skos:prefLabel "ODRL Profile for AI Use Polices"@en ;
+    skos:member aiup:UseOffer ;
+    skos:member aiup:UseAgreement ;
+    skos:member aiup:Deploy ;
+    skos:member aiup:Modify ;
+    skos:member aiup:ImplementControl ;
+    skos:member aiup:ReportRisk ;
+    skos:member aiup:AIProvider ;
+    skos:member aiup:AIDeployer ;
+    skos:member aiup:AISystem ;
+    skos:member aiup:Domain ;
+    skos:member aiup:Purpose ;
+    skos:member aiup:Capability ;
+    skos:member aiup:AISubject ;
+    skos:member aiup:UseEnvironment ;
+    skos:member aiup:Control .
+
+#---------------------------------------------------------
+#                       Policy
+#---------------------------------------------------------
+
+aiup:UseOffer a rdfs:Class , owl:Class, skos:Concept ;
+    rdfs:subClassOf odrl:Offer ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Use Offer"@en .
+
+    
+aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
+    rdfs:subClassOf odrl:Agreement ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Use Agreement"@en .
+
+#---------------------------------------------------------
+#                       Party
+#---------------------------------------------------------    
+
+aiup:AIProvider a odrl:Party, skos:concept ;
+    rdfs:subClassOf airo:AIProvider ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Provider"@en .
+
+
+aiup:AIDeployer a odrl:Party, odrl:leftOperand, skos:concept ;
+    rdfs:subClassOf odrl:AIDeployer ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Provider"@en .
+
+
+
+
+#---------------------------------------------------------
+#                       Target
+#---------------------------------------------------------    
+
+airo:AISystem a odrl:Asset, skos:concept ;
+    rdfs:subClassOf airo:AISystem ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI System"@en .
+
+
+
+#---------------------------------------------------------
+#                       Action
+#---------------------------------------------------------   
+aiup:Deploy  a odrl:action, skos:Concept ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Deploy"@en ;
+    rdfs:comment "Refers to the act of deploying an AI system" ;
+    skos:definition "Refers to the act of deploying an AI system" .
+
+aiup:Modify a odrl:action, skos:Concept ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Modify"@en ;
+    rdfs:comment "Refers to the act of modifying an AI system" ;
+    skos:definition "Refers to the act of modifying an AI system" .
+
+aiup:ImplementControl a odrl:action, skos:Concept ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Implement Control"@en ;
+    rdfs:comment "Refers to implementation of control measures " ;
+    skos:definition "Refers to implementation of control measures" . 
+
+aiup:ReportRisk a odrl:action, skos:Concept ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Report Risk"@en ;
+    rdfs:comment "Refers the act of reporting incidents and/or risks associated with a use of an AI system" ;
+    skos:definition "Refers the act of reporting incidents and/or risks associated with a use of an AI system" .
+
+
+
+#---------------------------------------------------------
+#                       Left Operand
+#---------------------------------------------------------   
+
+aiup:Domain a odrl:leftOperand, skos:Concept ;
+    rdfs:subClassOf  airo:Domain ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Domain" .
+
+aiup:Purpose a odrl:leftOperand, skos:Concept ;
+    rdfs:subClassOf  airo:Purpose ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Purpose" .
+
+
+aiup:Capability a odrl:leftOperand, skos:Concept  ;
+    rdfs:subClassOf  airo:Capability ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Capability" .
+
+aiup:AISubject a odrl:leftOperand, skos:Concept ;
+    rdfs:subClassOf  airo:AISubject ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Subject" .
+
+
+aiup:UseEnvironment a odrl:leftOperand, skos:Concept ;
+    rdfs:subClassOf  airo:UseEnvironment ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Use Environment" .
+
+aiup:Control a odrl:leftOperand, skos:Concept ;
+    rdfs:subClassOf  airo:Control ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Control" .
+
+
