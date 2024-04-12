@@ -69,7 +69,7 @@ aiup:AIProvider a odrl:Party, skos:concept ;
 aiup:AIDeployer a odrl:Party, odrl:leftOperand, skos:concept ;
     rdfs:subClassOf odrl:AIDeployer ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Provider"@en .
+    rdfs:label "AI Deployer"@en .
 
 
 

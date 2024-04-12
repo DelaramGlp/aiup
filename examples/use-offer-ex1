@@ -1,0 +1,59 @@
+
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix vair:<https://w3id.org/vair#> .
+@prefix aiup: <https://w3id.org/aiup#> .
+
+@prefix ex:<https://example.com/> .
+
+
+ex:proctify-useoffer-1 a aiup:UseOffer ;
+odrl:profile aiup: ;
+rdfs:comment "Policy for using Proctify, describing permissions, duties, and prohibitions of use" ; 
+
+odrl:permission [
+    a odrl:permission ;
+    odrl:assigner ex:aiedux ;
+    odrl:target ex:proctify ; 
+    odrl:action aiup:Deploy ;
+    
+    odrl:constraint  [ 
+            odrl:leftOperand aiup:Domain ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:Education  ]
+    odrl:constraint    
+        [
+            odrl:leftOperand aiup:Purpose ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:DetectCheating  ]
+    odrl:constraint        
+        [
+            odrl:leftOperand aiup:Capability  ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:FacialAnalysis  ]  
+    odrl:constraint    
+         [
+            odrl:leftOperand aiup:AIDeployer  ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:EducationalInstitution  ]
+   odrl:constraint         
+         [
+            odrl:leftOperand aiup:AISubject  ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:NaturalPerson  ]   ]  ;           
+                  
+    
+    odrl:duty [
+        dcterms:title "training to users of the system as a measures for
+        proctify to be implemented by the deployer" ;
+        odrl:action aiup:ImplementControl ;
+        odrl:constraint [
+            odrl:leftOperand aiup:Control  ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand vair:Training ; 
+            
+        ]    ; ] ;                  ] .
