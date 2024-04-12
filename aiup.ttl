@@ -63,13 +63,18 @@ aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
 aiup:AIProvider a odrl:Party, skos:concept ;
     rdfs:subClassOf airo:AIProvider ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Provider"@en .
+    rdfs:label "AI Provider"@en ;
+    rdfs:comment "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en ;
+    skos:definition "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en .
+
 
 
 aiup:AIDeployer a odrl:Party, odrl:leftOperand, skos:concept ;
     rdfs:subClassOf odrl:AIDeployer ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Deployer"@en .
+    rdfs:label "AI Deployer"@en ;
+    rdfs:comment "A natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity"@en ;
+    skos:definition "A natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity"@en .
 
 
 
@@ -81,7 +86,9 @@ aiup:AIDeployer a odrl:Party, odrl:leftOperand, skos:concept ;
 airo:AISystem a odrl:Asset, skos:concept ;
     rdfs:subClassOf airo:AISystem ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI System"@en .
+    rdfs:label "AI System"@en ;
+    rdfs:comment "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en ;
+    skos:definition "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en .
 
 
 
@@ -121,33 +128,45 @@ aiup:ReportRisk a odrl:action, skos:Concept ;
 aiup:Domain a odrl:leftOperand, skos:Concept ;
     rdfs:subClassOf  airo:Domain ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Domain" .
+    rdfs:label "Domain" ;
+    rdfs:comment "Specifies the domain an AI system is used within"@en ;
+    skos:definition "Specifies the domain an AI system is used within"@en .
 
 aiup:Purpose a odrl:leftOperand, skos:Concept ;
     rdfs:subClassOf  airo:Purpose ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Purpose" .
+    rdfs:label "Purpose" ;
+    rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
+    skos:definition "The end goal for which an entity is used or an action is taken"@en .
 
 
-aiup:Capability a odrl:leftOperand, skos:Concept  ;
+aiup:AICapability a odrl:leftOperand, skos:Concept  ;
     rdfs:subClassOf  airo:Capability ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Capability" .
+    rdfs:label "AI Capability" ;
+    rdfs:comment "Specifies capabilities implemented within an AI system to materialise its purposes"@en ;
+    skos:definition "Specifies capabilities implemented within an AI system to materialise its purposes"@en .
 
 aiup:AISubject a odrl:leftOperand, skos:Concept ;
     rdfs:subClassOf  airo:AISubject ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Subject" .
+    rdfs:label "AI Subject" ;
+    rdfs:comment "An entity that is subjected to the use of AI"@en ;
+    skos:definition "An entity that is subjected to the use of AI"@en .
 
 
 aiup:UseEnvironment a odrl:leftOperand, skos:Concept ;
     rdfs:subClassOf  airo:UseEnvironment ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Use Environment" .
+    rdfs:label "Use Environment" ;
+    rdfs:comment "The environment in which the AI system is used"@en ;
+    skos:definition "The environment in which the AI system is used"@en .
 
 aiup:Control a odrl:leftOperand, skos:Concept ;
     rdfs:subClassOf  airo:Control ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Control" .
+    rdfs:label "Control" ;
+    rdfs:comment "A measure that maintains and/or modifies risk"@en ;
+    skos:defintion "A measure that maintains and/or modifies risk"@en . 
 
 
