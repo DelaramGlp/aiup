@@ -1,12 +1,15 @@
-
-
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 @prefix airo: <https://w3id.org/airo#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 @prefix aiup: <https://w3id.org/aiup#> .
 
@@ -16,15 +19,41 @@
 #---------------------------------------------------------
 <https://w3id.org/aiup> a owl:Ontology, profile:Profile ;
     profile:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
-    dcterms:title "AI Intended Use Policy" ;
-    dcterms:creator "Delaram Golpayegani", "Beatriz Esteves", "Harshvardhan J. Pandit", "Dave Lewis" . 
+    profile:hasResource aiup:aiup-html, aiup:aiup-ttl ; # if/when other other serialisations are needed just add them here
+    dcterms:title "AI Intended Use Policy profile" ;
+    dcterms:creator "Delaram Golpayegani", "Beatriz Esteves", "Harshvardhan J. Pandit", "Dave Lewis" ;
+	vann:preferredNamespacePrefix "aiup" ;
+    vann:preferredNamespaceUri "https://w3id.org/aiup#"^^xsd:string ;
+	# owl:versionInfo "0.1"^^xsd:string ;
+	# owl:versionIRI <https://w3id.org/aiup/0.1> ;
+	# owl:priorVersion <https://w3id.org/aiup/0.1> ; for when there's new versions
+	dcterms:created "2024-04-12"^^xsd:date ;
+	# dcterms:modified "2024-XX-XX"^^xsd:date ;
+	dcterms:description "Abstract-like description of the profile's purpose"@en ;
+	dcterms:bibliographicCitation "Cite this vocabulary as: Golpayegani, D., Esteves, B., Pandit, H. J., & Lewis, D. (2024). AI Intended Use Policy profile 0.1. https://w3id.org/aiup#"@en ;
+	# bibo:doi "10.5281/zenodo.10247115"@en ; for if/when there's a doi
+	# foaf:logo <https://example.com/logo> ; for if/when there's a a logo
+	# dcterms:source <> ; link to AI Act?
+	dcterms:license <https://dalicc.net/licenselibrary/CC-BY-4.0> . # or other license
 
+aiup:aiup-html a profile:ResourceDescriptor ;
+    profile:hasRole role:specification ;
+    profile:hasArtifact <https://.../aiup.html> ;
+    dcterms:title "AI Intended Use Policy profile HTML specification"@en ;
+    dcterms:format <https://www.iana.org/assignments/media-types/text/html> ;
+    dcterms:conformsTo <https://www.w3.org/TR/html/> .
 
+aiup:aiup-ttl a profile:ResourceDescriptor ;
+    profile:hasRole role:vocabulary ;
+    profile:hasArtifact <https://.../aiup.ttl> ;
+    dcterms:title "AI Intended Use Policy profile Turtle vocabulary"@en ;
+    dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:conformsTo <https://www.w3.org/TR/turtle/> .
 
-
+# terms used from the ODRL Common Vocabulary (https://www.w3.org/TR/odrl-vocab/#vocab-common) also need to be "imported" here, if any are needed
 <https://w3id.org/aiup#>
     a skos:Collection ;
-    skos:prefLabel "ODRL Profile for AI Use Polices"@en ;
+    skos:prefLabel "AI Intended Use Policy profile concepts"@en ;
     skos:member aiup:UseOffer ;
     skos:member aiup:UseAgreement ;
     skos:member aiup:Deploy ;
@@ -45,12 +74,21 @@
 #                       Policy
 #---------------------------------------------------------
 
-aiup:UseOffer a rdfs:Class , owl:Class, skos:Concept ;
+# odrl:Offer - An Offer Policy MUST contain at least one Permission or Prohibition rule and a Party with 
+# Assigner function (in the same Permission or Prohibition). The Offer Policy MAY contain a Party with Assignee 
+# function, but MUST not grant any privileges to that Party.
+# Does a aiup:UseOffer impose additional requirements over a "normal" odrl:Offer?
+# If so, then we should model the new policy type following the ODRL profile best practices document:
+# ex:myPolicyType rdfs:subClassOf odrl:Policy ;
+#     owl:disjointWith odrl:Agreement, odrl:Offer, odrl:Privacy, odrl:Request, odrl:Ticket, odrl:Assertion .
+aiup:UseOffer a rdfs:Class, owl:Class, skos:Concept ;
     rdfs:subClassOf odrl:Offer ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Use Offer"@en .
+    # skos:definition "Describe MUSTs and MAYs of the new policy type" ;
+    # skos:example "Example" .
 
-    
+# Same as above - check how it differs from odrl:Agreement
 aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
     rdfs:subClassOf odrl:Agreement ;
     rdfs:isDefinedBy aiup: ;
@@ -60,94 +98,91 @@ aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
 #                       Party
 #---------------------------------------------------------    
 
-aiup:AIProvider a odrl:Party, skos:concept ;
+aiup:AIProvider a odrl:Party, skos:Concept ;
     rdfs:subClassOf airo:AIProvider ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Provider"@en ;
     rdfs:comment "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en ;
     skos:definition "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en .
 
-
-
-aiup:AIDeployer a odrl:Party, odrl:leftOperand, skos:concept ;
-    rdfs:subClassOf odrl:AIDeployer ;
+# Why is it a Party and a LeftOperand?
+# If both are needed we should model them separately I think
+# aiup:AIDeployer a odrl:Party, odrl:LeftOperand, skos:Concept ;
+aiup:AIDeployer a odrl:Party, skos:Concept ;
+    rdfs:subClassOf airo:AIDeployer ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Deployer"@en ;
     rdfs:comment "A natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity"@en ;
     skos:definition "A natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity"@en .
 
-
-
-
 #---------------------------------------------------------
-#                       Target
+#                       Asset
 #---------------------------------------------------------    
 
-airo:AISystem a odrl:Asset, skos:concept ;
+aiup:AISystem a odrl:Asset, skos:Concept ;
     rdfs:subClassOf airo:AISystem ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI System"@en ;
     rdfs:comment "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en ;
     skos:definition "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en .
 
-
-
 #---------------------------------------------------------
 #                       Action
 #---------------------------------------------------------   
-aiup:Deploy  a odrl:action, skos:Concept ;
+aiup:Deploy a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Deploy"@en ;
     rdfs:comment "Refers to the act of deploying an AI system" ;
     skos:definition "Refers to the act of deploying an AI system" .
 
-aiup:Modify a odrl:action, skos:Concept ;
+aiup:Modify a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Modify"@en ;
     rdfs:comment "Refers to the act of modifying an AI system" ;
     skos:definition "Refers to the act of modifying an AI system" .
 
-aiup:ImplementControl a odrl:action, skos:Concept ;
+aiup:ImplementControl a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Implement Control"@en ;
     rdfs:comment "Refers to implementation of control measures " ;
     skos:definition "Refers to implementation of control measures" . 
 
-aiup:ReportRisk a odrl:action, skos:Concept ;
+aiup:ReportRisk a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Report Risk"@en ;
     rdfs:comment "Refers the act of reporting incidents and/or risks associated with a use of an AI system" ;
     skos:definition "Refers the act of reporting incidents and/or risks associated with a use of an AI system" .
 
-
-
 #---------------------------------------------------------
 #                       Left Operand
 #---------------------------------------------------------   
 
-aiup:Domain a odrl:leftOperand, skos:Concept ;
+# It might also be interesting to add:
+# skos:example to express the type of constraint being modelled by the new left operand
+# skos:note with info on what operators should be used (odrl:isA, odrl:eq, odrl:neq, oac:isNotA, ...)
+
+aiup:Domain a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:Domain ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Domain" ;
     rdfs:comment "Specifies the domain an AI system is used within"@en ;
     skos:definition "Specifies the domain an AI system is used within"@en .
 
-aiup:Purpose a odrl:leftOperand, skos:Concept ;
+aiup:Purpose a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:Purpose ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Purpose" ;
     rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
     skos:definition "The end goal for which an entity is used or an action is taken"@en .
 
-
-aiup:AICapability a odrl:leftOperand, skos:Concept  ;
+aiup:AICapability a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:Capability ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Capability" ;
     rdfs:comment "Specifies capabilities implemented within an AI system to materialise its purposes"@en ;
     skos:definition "Specifies capabilities implemented within an AI system to materialise its purposes"@en .
 
-aiup:AISubject a odrl:leftOperand, skos:Concept ;
+aiup:AISubject a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:AISubject ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Subject" ;
@@ -155,18 +190,16 @@ aiup:AISubject a odrl:leftOperand, skos:Concept ;
     skos:definition "An entity that is subjected to the use of AI"@en .
 
 
-aiup:UseEnvironment a odrl:leftOperand, skos:Concept ;
+aiup:UseEnvironment a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:UseEnvironment ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Use Environment" ;
     rdfs:comment "The environment in which the AI system is used"@en ;
     skos:definition "The environment in which the AI system is used"@en .
 
-aiup:Control a odrl:leftOperand, skos:Concept ;
+aiup:Control a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     rdfs:subClassOf  airo:Control ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Control" ;
     rdfs:comment "A measure that maintains and/or modifies risk"@en ;
-    skos:defintion "A measure that maintains and/or modifies risk"@en . 
-
-
+    skos:defintion "A measure that maintains and/or modifies risk"@en .
