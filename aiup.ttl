@@ -29,23 +29,23 @@
 	# owl:priorVersion <https://w3id.org/aiup/0.1> ; for when there's new versions
 	dcterms:created "2024-04-12"^^xsd:date ;
 	# dcterms:modified "2024-XX-XX"^^xsd:date ;
-	dcterms:description "The profile enables representing intended purpose of an AI system as policies where intended uses, conditions of use, and precluded uses can be expressed "@en ;
+	dcterms:description "The AIUP profile assists in expressing rules over use of an AI system by enabling representing its intended purpose as policies where intended uses, conditions of use, and precluded uses can be expressed. "@en ;
 	dcterms:bibliographicCitation "Cite this vocabulary as: Golpayegani, D., Esteves, B., Pandit, H. J., & Lewis, D. (2024). AI Intended Use Policy profile 0.1. https://w3id.org/aiup#"@en ;
 	# bibo:doi "10.5281/zenodo.10247115"@en ; for if/when there's a doi
 	# foaf:logo <https://example.com/logo> ; for if/when there's a a logo
 	# dcterms:source <> ; link to AI Act?
-	dcterms:license <https://dalicc.net/licenselibrary/CC-BY-4.0> . # or other license
+	dcterms:license <https://dalicc.net/licenselibrary/CC-BY-4.0> . 
 
 aiup:aiup-html a profile:ResourceDescriptor ;
     profile:hasRole role:specification ;
-    profile:hasArtifact <https://.../aiup.html> ;
-    dcterms:title "AI Intended Use Policy profile HTML specification"@en ;
+    profile:hasArtifact <https://raw.githubusercontent.com/DelaramGlp/aiup/main/index.html> ;
+    dcterms:title "ODRL profile for AI Use Policy HTML specification"@en ;
     dcterms:format <https://www.iana.org/assignments/media-types/text/html> ;
     dcterms:conformsTo <https://www.w3.org/TR/html/> .
 
 aiup:aiup-ttl a profile:ResourceDescriptor ;
     profile:hasRole role:vocabulary ;
-    profile:hasArtifact <https://.../aiup.ttl> ;
+    profile:hasArtifact <https://raw.githubusercontent.com/DelaramGlp/aiup/main/aiup.ttl> ;
     dcterms:title "AI Intended Use Policy profile Turtle vocabulary"@en ;
     dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
     dcterms:conformsTo <https://www.w3.org/TR/turtle/> .
@@ -53,7 +53,8 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
 # terms used from the ODRL Common Vocabulary (https://www.w3.org/TR/odrl-vocab/#vocab-common) also need to be "imported" here, if any are needed
 <https://w3id.org/aiup#>
     a skos:Collection ;
-    skos:prefLabel "AI Intended Use Policy profile concepts"@en ;
+    skos:prefLabel "AI Use Policy profile concepts"@en ;
+    skos:scopeNote "ODRL AI Use profile terms based on the AI Risk Ontology (AIRO) "@en ;
     skos:member aiup:UseOffer ;
     skos:member aiup:UseAgreement ;
     skos:member aiup:Deploy ;
@@ -68,7 +69,9 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:Capability ;
     skos:member aiup:AISubject ;
     skos:member aiup:UseEnvironment ;
-    skos:member aiup:Control .
+    skos:member aiup:Control ;
+    skos:member odrl:dateTime .
+
 
 #---------------------------------------------------------
 #                       Policy
@@ -93,6 +96,8 @@ aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
     rdfs:subClassOf odrl:Agreement ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Use Agreement"@en .
+    # skos:definition "Describe MUSTs and MAYs of the new policy type" ;
+    # skos:example "Example" .
 
 #---------------------------------------------------------
 #                       Party
