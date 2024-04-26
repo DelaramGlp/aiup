@@ -20,7 +20,7 @@
 <https://w3id.org/aiup> a owl:Ontology, profile:Profile ;
     profile:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
     profile:hasResource aiup:aiup-html, aiup:aiup-ttl ; # if/when other other serialisations are needed just add them here
-    dcterms:title "AI Intended Use Policy profile" ;
+    dcterms:title "AI Use Policy" ;
     dcterms:creator "Delaram Golpayegani", "Beatriz Esteves", "Harshvardhan J. Pandit", "Dave Lewis" ;
 	vann:preferredNamespacePrefix "aiup" ;
     vann:preferredNamespaceUri "https://w3id.org/aiup#"^^xsd:string ;
@@ -29,7 +29,7 @@
 	# owl:priorVersion <https://w3id.org/aiup/0.1> ; for when there's new versions
 	dcterms:created "2024-04-12"^^xsd:date ;
 	# dcterms:modified "2024-XX-XX"^^xsd:date ;
-	dcterms:description "Abstract-like description of the profile's purpose"@en ;
+	dcterms:description "The profile enables representing intended purpose of an AI system as policies where intended uses, conditions of use, and precluded uses can be expressed "@en ;
 	dcterms:bibliographicCitation "Cite this vocabulary as: Golpayegani, D., Esteves, B., Pandit, H. J., & Lewis, D. (2024). AI Intended Use Policy profile 0.1. https://w3id.org/aiup#"@en ;
 	# bibo:doi "10.5281/zenodo.10247115"@en ; for if/when there's a doi
 	# foaf:logo <https://example.com/logo> ; for if/when there's a a logo
