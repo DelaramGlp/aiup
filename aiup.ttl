@@ -190,28 +190,28 @@ aiup:ReportRisk a odrl:Action, skos:Concept ;
 # skos:note with info on what operators should be used (odrl:isA, odrl:eq, odrl:neq, oac:isNotA, ...)
 
 aiup:Domain a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:Domain ;
+    skos:exactMatch  airo:Domain ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Domain" ;
     rdfs:comment "Specifies the domain an AI system is used within"@en ;
     skos:definition "Specifies the domain an AI system is used within"@en .
 
 aiup:Purpose a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:Purpose ;
+    skos:exactMatch  airo:Purpose ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Purpose" ;
     rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
     skos:definition "The end goal for which an entity is used or an action is taken"@en .
 
 aiup:AICapability a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:Capability ;
+    skos:exactMatch  airo:Capability ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Capability" ;
     rdfs:comment "Specifies capabilities implemented within an AI system to materialise its purposes"@en ;
     skos:definition "Specifies capabilities implemented within an AI system to materialise its purposes"@en .
 
 aiup:AISubject a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:AISubject ;
+    skos:exactMatch  airo:AISubject ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Subject" ;
     rdfs:comment "An entity that is subjected to the use of AI"@en ;
@@ -219,20 +219,21 @@ aiup:AISubject a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
 
 
 aiup:UseEnvironment a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:UseEnvironment ;
+    skos:exactMatch  airo:UseEnvironment ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Use Environment" ;
     rdfs:comment "The environment in which the AI system is used"@en ;
     skos:definition "The environment in which the AI system is used"@en .
 
 aiup:Control a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    rdfs:subClassOf  airo:Control ;
+    skos:exactMatch  airo:Control ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Control" ;
     rdfs:comment "A measure that maintains and/or modifies risk"@en ;
     skos:defintion "A measure that maintains and/or modifies risk"@en .
 
 aiup:ReportRecipient a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
+    skos:exactMatch  airo:ReportRecipient ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Report Recipient" ;
     rdfs:comment "An entity who recieves the report"@en ;
