@@ -71,6 +71,7 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:AIDeployer ;
     skos:member aiup:seq ;
     skos:member aiup:AISystem ;
+    skos:member aiup:AIComponent ;
     skos:member aiup:Domain ;
     skos:member aiup:Purpose ;
     skos:member aiup:Capability ;
@@ -175,6 +176,14 @@ aiup:AISystem a odrl:Asset, skos:Concept ;
     rdfs:comment "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en ;
     skos:definition "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en .
 
+aiup:AIComponent a odrl:Asset, skos:Concept ;
+    skos:exactMatch airo:AIComponent ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Component"@en ;
+    rdfs:Comment "A componet associated with an AI system."@en ;
+    skos:definition "A componet associated with an AI system."@en ;
+    skos:example "AI models and datasets" . 
+
 #---------------------------------------------------------
 #                       Operator
 #--------------------------------------------------------- 
@@ -183,6 +192,7 @@ aiup:seq a odrl:Operator, owl:NamedIndividual, skos:Concept ;
     rdfs:label "Semantically Equal"@en ;
 	rdfs:comment "Indicates that a given Left Operand is an instance or sub-class of the Right Operand of the Constraint."@en ;
 	skos:definition "Indicates that a given Left Operand is an instance or sub-class of the Right Operand of the Constraint."@en .
+
 #---------------------------------------------------------
 #                       Action
 #---------------------------------------------------------   
