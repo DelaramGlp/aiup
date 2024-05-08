@@ -127,7 +127,7 @@ aiup:UseAgreement a rdfs:Class , owl:Class, skos:Concept ;
 #---------------------------------------------------------    
 
 aiup:AIProvider a odrl:Party, skos:Concept ;
-    rdfs:subClassOf airo:AIProvider ;
+    skos:exactMatch airo:AIProvider ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Provider"@en ;
     rdfs:comment "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en ;
@@ -137,7 +137,7 @@ aiup:AIProvider a odrl:Party, skos:Concept ;
 # If both are needed we should model them separately I think
 # aiup:AIDeployer a odrl:Party, odrl:LeftOperand, skos:Concept ;
 aiup:AIDeployer a odrl:Party, skos:Concept ;
-    rdfs:subClassOf airo:AIDeployer ;
+    skos:exactMatch airo:AIDeployer ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Deployer"@en ;
     rdfs:comment "A natural or legal person, public authority, agency or other body using an AI system under its authority except where the AI system is used in the course of a personal non-professional activity"@en ;
