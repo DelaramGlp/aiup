@@ -10,6 +10,8 @@
 @prefix airo: <https://w3id.org/airo#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix tech: <https://w3id.org/dpv/tech> .
+@prefix dpv: <https://w3id.org/dpv/> .
 
 @prefix aiup: <https://w3id.org/aiup#> .
 
@@ -54,9 +56,11 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
 <https://w3id.org/aiup#>
     a skos:Collection ;
     skos:prefLabel "AI Use Policy profile concepts"@en ;
-    skos:scopeNote "ODRL AI Use profile terms based on the AI Risk Ontology (AIRO) "@en ;
+    skos:scopeNote "ODRL AI Use Policy profile terms "@en ;
+    skos:member aiup:UsePolicy ;
     skos:member aiup:UseOffer ;
     skos:member aiup:UseAgreement ;
+    skos:member aiup:UseRequest ;
     skos:member aiup:Deploy ;
     skos:member aiup:Modify ;
     skos:member aiup:ImplementControl ;
@@ -144,7 +148,7 @@ aiup:AIDeployer a odrl:Party, skos:Concept ;
 #---------------------------------------------------------    
 
 aiup:AISystem a odrl:Asset, skos:Concept ;
-    rdfs:subClassOf airo:AISystem ;
+    skos:exactMatch airo:AISystem ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI System"@en ;
     rdfs:comment "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en ;
@@ -162,20 +166,20 @@ aiup:Deploy a odrl:Action, skos:Concept ;
 # aiup:Modify a odrl:Action, skos:Concept ;
 #    rdfs:isDefinedBy aiup: ;
 #    rdfs:label "Modify"@en ;
-#    rdfs:comment "Refers to the act of modifying an AI system" ;
-#    skos:definition "Refers to the act of modifying an AI system" .
+#    rdfs:comment "Refers to the act of modifying an AI system"@en ;
+#    skos:definition "Refers to the act of modifying an AI system"@en .
 
 aiup:ImplementControl a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Implement Control"@en ;
-    rdfs:comment "Refers to implementation of control measures " ;
-    skos:definition "Refers to implementation of control measures" . 
+    rdfs:comment "Refers to implementation of control measures"@en ;
+    skos:definition "Refers to implementation of control measures"@en. 
 
 aiup:ReportRisk a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Report Risk"@en ;
-    rdfs:comment "Refers the act of reporting incidents and/or risks associated with a use of an AI system" ;
-    skos:definition "Refers the act of reporting incidents and/or risks associated with a use of an AI system" .
+    rdfs:comment "Refers the act of reporting incidents and/or risks associated with a use of an AI system"@en ;
+    skos:definition "Refers the act of reporting incidents and/or risks associated with a use of an AI system"@en .
 
 #---------------------------------------------------------
 #                       Left Operand
