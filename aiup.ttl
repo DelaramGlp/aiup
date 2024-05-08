@@ -65,8 +65,11 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:Modify ;
     skos:member aiup:ImplementControl ;
     skos:member aiup:ReportRisk ;
+    skos:member aiup:Provider ;
+    skos:member aiup:Deployer ;
     skos:member aiup:AIProvider ;
     skos:member aiup:AIDeployer ;
+    skos:member aiup:seq ;
     skos:member aiup:AISystem ;
     skos:member aiup:Domain ;
     skos:member aiup:Purpose ;
@@ -172,6 +175,14 @@ aiup:AISystem a odrl:Asset, skos:Concept ;
     rdfs:comment "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en ;
     skos:definition "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments."@en .
 
+#---------------------------------------------------------
+#                       Operator
+#--------------------------------------------------------- 
+aiup:seq a odrl:Operator, owl:NamedIndividual, skos:Concept ;
+	rdfs:isDefinedBy aiup: ;
+    rdfs:label "Semantically Equal"@en ;
+	rdfs:comment "Indicates that a given Left Operand is an instance or sub-class of the Right Operand of the Constraint."@en ;
+	skos:definition "Indicates that a given Left Operand is an instance or sub-class of the Right Operand of the Constraint."@en .
 #---------------------------------------------------------
 #                       Action
 #---------------------------------------------------------   
