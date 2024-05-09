@@ -1,6 +1,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <https://www.w3.org/TR/rdf12-schema/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -12,7 +13,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix tech: <https://w3id.org/dpv/tech> .
 @prefix dpv: <https://w3id.org/dpv/> .
-
 @prefix aiup: <https://w3id.org/aiup#> .
 
 
@@ -72,13 +72,14 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:seq ;
     skos:member aiup:AISystem ;
     skos:member aiup:AIComponent ;
-    skos:member aiup:Domain ;
-    skos:member aiup:Purpose ;
-    skos:member aiup:Capability ;
-    skos:member aiup:AISubject ;
-    skos:member aiup:UseEnvironment ;
-    skos:member aiup:ReportRecipient ;
-    skos:member aiup:Control ;
+    skos:member aiup:isAppliedWithinDomain ;
+    skos:member aiup:hasPurpose ;
+    skos:member aiup:hasCapability ;
+    skos:member aiup:hasAISubject ;
+    skos:member aiup:hasUseEnvironment ;
+    skos:member aiup:isDeployedBy ;
+    skos:member aiup:hasReportRecipient ;
+    skos:member aiup:hasControl ;
     skos:member odrl:dateTime .
 
 
@@ -229,51 +230,51 @@ aiup:ReportRisk a odrl:Action, skos:Concept ;
 # skos:example to express the type of constraint being modelled by the new left operand
 # skos:note with info on what operators should be used (odrl:isA, odrl:eq, odrl:neq, oac:isNotA, ...)
 
-aiup:Domain a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:Domain ;
+aiup:isAppliedWithinDomain a odrl:LeftOperand, skos:Concept, rdf:Property;
+    skos:exactMatch  airo:isAppliedWithinDomain ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Domain" ;
+    rdfs:label "is applied within domain" ;
     rdfs:comment "Specifies the domain an AI system is used within"@en ;
     skos:definition "Specifies the domain an AI system is used within"@en .
 
-aiup:Purpose a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:Purpose ;
+aiup:hasPurpose a odrl:LeftOperand, skos:Concept, rdf:Property ;
+    skos:exactMatch  airo:hasPurpose ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Purpose" ;
-    rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
-    skos:definition "The end goal for which an entity is used or an action is taken"@en .
+    rdfs:label "has purpose" ;
+    rdfs:comment "Defines the end goal for which an entity is used or an action is taken"@en ;
+    skos:definition "Defines the end goal for which an entity is used or an action is taken"@en .
 
-aiup:AICapability a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:Capability ;
+aiup:hasCapability a odrl:LeftOperand, skos:Concept, rdf:Property ;
+    skos:exactMatch  airo:hasCapability ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Capability" ;
+    rdfs:label "has capability" ;
     rdfs:comment "Specifies capabilities implemented within an AI system to materialise its purposes"@en ;
     skos:definition "Specifies capabilities implemented within an AI system to materialise its purposes"@en .
 
-aiup:AISubject a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:AISubject ;
+aiup:hasAISubject a odrl:LeftOperand, skos:Concept, rdf:Property ;
+    skos:exactMatch  airo:hasAISubject ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "AI Subject" ;
-    rdfs:comment "An entity that is subjected to the use of AI"@en ;
-    skos:definition "An entity that is subjected to the use of AI"@en .
+    rdfs:label "has AI subject" ;
+    rdfs:comment "Defines an entity that is subjected to the use of AI"@en ;
+    skos:definition "Defines an entity that is subjected to the use of AI"@en .
 
 
-aiup:UseEnvironment a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:UseEnvironment ;
+aiup:hasUseEnvironment a odrl:LeftOperand, skos:Concept, rdf:Property ;
+    skos:exactMatch  airo:hasUseEnvironment ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Use Environment" ;
-    rdfs:comment "The environment in which the AI system is used"@en ;
-    skos:definition "The environment in which the AI system is used"@en .
+    rdfs:label "has use environment" ;
+    rdfs:comment "Defines the environment in which the AI system is used"@en ;
+    skos:definition "Defines the environment in which the AI system is used"@en .
 
-aiup:Control a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:Control ;
+aiup:hasControl a odrl:LeftOperand, skos:Concept, rdf:Property;
+#    skos:exactMatch  airo:Control ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Control" ;
-    rdfs:comment "A measure that maintains and/or modifies risk"@en ;
-    skos:defintion "A measure that maintains and/or modifies risk"@en .
+    rdfs:label "has Control" ;
+    rdfs:comment "Indicates a measure that maintains and/or modifies risk"@en ;
+    skos:defintion "Indicates a measure that maintains and/or modifies risk"@en .
 
-aiup:ReportRecipient a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
+aiup:hasReportRecipient a odrl:LeftOperand, skos:Concept, rdf:Property ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Report Recipient" ;
-    rdfs:comment "An entity who recieves the report"@en ;
-    skos:defintion "An entity who recieves the report"@en .    
+    rdfs:label "has report recipient" ;
+    rdfs:comment "Indicates an entity who recieves the report"@en ;
+    skos:defintion "Indicates an entity who recieves the report"@en .    
