@@ -272,7 +272,6 @@ aiup:Control a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
     skos:defintion "A measure that maintains and/or modifies risk"@en .
 
 aiup:ReportRecipient a odrl:LeftOperand, skos:Concept, owl:NamedIndividual ;
-    skos:exactMatch  airo:ReportRecipient ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Report Recipient" ;
     rdfs:comment "An entity who recieves the report"@en ;
