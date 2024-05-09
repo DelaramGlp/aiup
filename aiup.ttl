@@ -77,6 +77,7 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:Capability ;
     skos:member aiup:AISubject ;
     skos:member aiup:UseEnvironment ;
+    skos:member aiup:ReportRecipient ;
     skos:member aiup:Control ;
     skos:member odrl:dateTime .
 
@@ -202,11 +203,11 @@ aiup:Deploy a odrl:Action, skos:Concept ;
     rdfs:comment "Refers to the act of deploying an AI system" ;
     skos:definition "Refers to the act of deploying an AI system" .
 
-# aiup:Modify a odrl:Action, skos:Concept ;
-#    rdfs:isDefinedBy aiup: ;
-#    rdfs:label "Modify"@en ;
-#    rdfs:comment "Refers to the act of modifying an AI system"@en ;
-#    skos:definition "Refers to the act of modifying an AI system"@en .
+ aiup:Modify a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Modify"@en ;
+    rdfs:comment "Refers to the act of modifying an AI system"@en ;
+    skos:definition "Refers to the act of modifying an AI system"@en .
 
 aiup:ImplementControl a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
