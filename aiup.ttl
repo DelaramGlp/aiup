@@ -251,6 +251,13 @@ aiup:hasCapability a odrl:LeftOperand, skos:Concept, rdf:Property ;
     rdfs:comment "Specifies capabilities implemented within an AI system to materialise its purposes"@en ;
     skos:definition "Specifies capabilities implemented within an AI system to materialise its purposes"@en .
 
+aiup:isDeployedBy a odrl:LeftOperand, skos:Concept, rdf:Property ;
+    skos:exactMatch  airo:isDeployedBy ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "is deployed by" ;
+    rdfs:comment "Specifies the deployer of the system"@en ;
+    skos:definition ""Specifies the deployer of the system"@en .
+
 aiup:hasAISubject a odrl:LeftOperand, skos:Concept, rdf:Property ;
     skos:exactMatch  airo:hasAISubject ;
     rdfs:isDefinedBy aiup: ;
