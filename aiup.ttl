@@ -87,14 +87,6 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
 #                       Policy
 #---------------------------------------------------------
 
-# odrl:Offer - An Offer Policy MUST contain at least one Permission or Prohibition rule and a Party with 
-# Assigner function (in the same Permission or Prohibition). The Offer Policy MAY contain a Party with Assignee 
-# function, but MUST not grant any privileges to that Party.
-# Does a aiup:UseOffer impose additional requirements over a "normal" odrl:Offer?
-# If so, then we should model the new policy type following the ODRL profile best practices document:
-# ex:myPolicyType rdfs:subClassOf odrl:Policy ;
-#     owl:disjointWith odrl:Agreement, odrl:Offer, odrl:Privacy, odrl:Request, odrl:Ticket, odrl:Assertion .
-
 aiup:UsePolicy a rdfs:Class, owl:Class, skos:Concept ;
     rdfs:subClassOf odrl:Policy ;
     owl:disjointWith odrl:Agreement, odrl:Offer, odrl:Privacy, odrl:Request, odrl:Ticket, odrl:Assertion ;
@@ -141,8 +133,8 @@ aiup:Provider a odrl:Party, skos:Concept ;
     skos:definition "Actor that provides a technology"@en .
 
 
-aiup:Deployer a odrl:Party, skos:Concept ;
-    skos:exactMatch skos:Deployer ;
+aiup:Deployer a odrl:Party, skos:Concept;
+    skos:exactMatch tech:TechnologyDeployer ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Deployer"@en ;
     rdfs:comment "Actor that deploys a technology"@en ;
@@ -157,9 +149,6 @@ aiup:AIProvider a odrl:Party, skos:Concept ;
     rdfs:comment "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en ;
     skos:definition "A natural or legal person, public authority, agency or other body that develops an AI system or a general purpose AI model or that has an AI system or a general purpose AI model developed and places them on the market or puts the system into service under its own name or trademark, whether for payment or free of charge"@en .
 
-# Why is it a Party and a LeftOperand?
-# If both are needed we should model them separately I think
-# aiup:AIDeployer a odrl:Party, odrl:LeftOperand, skos:Concept ;
 aiup:AIDeployer a odrl:Party, skos:Concept ;
     skos:exactMatch airo:AIDeployer ;
     rdfs:subClassOf aiup:Deployer ;
@@ -253,12 +242,7 @@ aiup:Capability a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:comment "Capabilities implemented within an AI system to materialize its purposes"@en ;
     skos:definition "Capabilities implemented within an AI system to materialize its purposes"@en .
 
-aiup:Deployer a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    skos:exactMatch tech:Deployer ;
-    rdfs:isDefinedBy aiup: ;
-    rdfs:label "Deployer" ;
-    rdfs:comment "The deployer of the system"@en ;
-    skos:definition "The deployer of the system"@en .
+aiup:Deployer a odrl:LeftOperand, owl:NamedIndividual .
 
 aiup:AISubject a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:AISubject ;
