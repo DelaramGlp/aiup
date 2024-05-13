@@ -232,56 +232,56 @@ aiup:ReportRisk a odrl:Action, skos:Concept ;
 # skos:example to express the type of constraint being modelled by the new left operand
 # skos:note with info on what operators should be used (odrl:isA, odrl:eq, odrl:neq, oac:isNotA, ...)
 
-aiup:Domain a odrl:LeftOperand, owl:Class, skos:Concept ; 
+aiup:Domain a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ; 
     skos:exactMatch airo:Domain ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Domain" ;
     rdfs:comment "The domain an AI system is used within"@en ;
     skos:definition "The domain an AI system is used within"@en .
 
-aiup:Purpose a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:Purpose a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:Purpose ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Purpose" ;
     rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
     skos:definition "The end goal for which an entity is used or an action is taken"@en .
 
-aiup:Capability a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:Capability a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:apability ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Capability" ;
     rdfs:comment "Capabilities implemented within an AI system to materialize its purposes"@en ;
     skos:definition "Capabilities implemented within an AI system to materialize its purposes"@en .
 
-aiup:Deployer a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:Deployer a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch tech:Deployer ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Deployer" ;
     rdfs:comment "The deployer of the system"@en ;
     skos:definition "The deployer of the system"@en .
 
-aiup:AISubject a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:AISubject a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:AISubject ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Subject" ;
     rdfs:comment "An entity that is subjected to the use of AI"@en ;
     skos:definition "An entity that is subjected to the use of AI"@en .
 
-aiup:UseEnvironment a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:UseEnvironment a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:UseEnvironment ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Use Environment" ;
     rdfs:comment "The environment in which the AI system is used"@en ;
     skos:definition "The environment in which the AI system is used"@en .
 
-aiup:Control a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:Control a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:Control ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Control" ;
     rdfs:comment "A measure that maintains and/or modifies risk"@en ;
     skos:definition "A measure that maintains and/or modifies risk"@en .
 
-aiup:ReportRecipient a odrl:LeftOperand, owl:Class, skos:Concept ;
+aiup:ReportRecipient a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Report Recipient" ;
     rdfs:comment "An entity who receives the report"@en ;
