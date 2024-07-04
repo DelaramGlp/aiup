@@ -17,7 +17,7 @@ dct:creator ex:aiedux ;
 dct:issued "2024-05-26"^^xsd:dateTime ;
 odrl:uid ex:proctify-useoffer-01  ;
 odrl:permission [
-      a odrl:permission ;
+      a odrl:Permission ;
       odrl:assigner ex:aiedux ;
       odrl:target ex:proctify ; 
       odrl:action aiup:Deploy ;
