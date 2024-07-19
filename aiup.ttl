@@ -181,6 +181,7 @@ aiup:AIComponent a odrl:Asset, skos:Concept ;
 
 aiup:AIModel a odrl:Asset, skos:Concept ;
     skos:exactMatch airo:AIModel ;
+    rdfs:subClassOf aiup:AIComponent ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "AI Model"@en ;
     rdfs:Comment "Mathematical construct that generates an inference or prediction, based on input data."@en ;
@@ -188,13 +189,15 @@ aiup:AIModel a odrl:Asset, skos:Concept ;
 
 aiup:GPAIModel a odrl:Asset, skos:Concept ;
     skos:exactMatch airo:GPAIModel ;
+    rdfs:subClassOf aiup:AIModel ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "GPAI Model"@en ;
     rdfs:Comment "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en ;
     skos:definition "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en .
 
-aiup:Dataset odrl:Asset, skos:Concept ;
+aiup:Dataset a odrl:Asset, skos:Concept ;
     skos:exactMatch dcat:Dataset ;
+    rdfs:subClassOf aiup:AIComponent ;
     rdfs:isDefinedBy aiup: ;
     rdfs:label "Dataset"@en ;
     rdfs:Comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations.."@en ;
