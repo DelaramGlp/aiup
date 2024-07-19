@@ -14,6 +14,7 @@
 @prefix tech: <https://w3id.org/dpv/tech> .
 @prefix dpv: <https://w3id.org/dpv/> .
 @prefix aiup: <https://w3id.org/aiup#> .
+@prefix dcat: <https://www.w3.org/TR/vocab-dcat-3/>  .
 
 @prefix : <https://w3id.org/aiup#> .
 
@@ -73,6 +74,9 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:seq ;
     skos:member aiup:AISystem ;
     skos:member aiup:AIComponent ;
+    skos:member aiup:AIModel ;
+    skos:member aiup:GPAIModel ;
+    skos:member aiup:Dataset;
     skos:member aiup:Domain ;
     skos:member aiup:Purpose ;
     skos:member aiup:AICapability ;
@@ -174,6 +178,27 @@ aiup:AIComponent a odrl:Asset, skos:Concept ;
     rdfs:Comment "A componet associated with an AI system."@en ;
     skos:definition "A componet associated with an AI system."@en ;
     skos:example "AI models and datasets" . 
+
+aiup:AIModel a odrl:Asset, skos:Concept ;
+    skos:exactMatch airo:AIModel ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "AI Model"@en ;
+    rdfs:Comment "Mathematical construct that generates an inference or prediction, based on input data."@en ;
+    skos:definition "Mathematical construct that generates an inference or prediction, based on input data."@en .
+
+aiup:GPAIModel a odrl:Asset, skos:Concept ;
+    skos:exactMatch airo:GPAIModel ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "GPAI Model"@en ;
+    rdfs:Comment "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en ;
+    skos:definition "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en .
+
+aiup:Dataset odrl:Asset, skos:Concept ;
+    skos:exactMatch dcat:Dataset ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Dataset"@en ;
+    rdfs:Comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations.."@en ;
+    skos:definition "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en . 
 
 #---------------------------------------------------------
 #                       Operator
