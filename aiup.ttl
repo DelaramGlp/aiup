@@ -77,8 +77,7 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:Purpose ;
     skos:member aiup:AICapability ;
     skos:member aiup:AISubject ;
-    skos:member aiup:EnvironmentOfUse ;
-    skos:member aiup:Deployer ;
+    skos:member aiup:LocalityOfUse ;
     skos:member aiup:ReportRecipient ;
     skos:member aiup:Control ;
     skos:member odrl:dateTime . 
@@ -251,12 +250,12 @@ aiup:AISubject a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:comment "An entity that is subjected to the use of AI"@en ;
     skos:definition "An entity that is subjected to the use of AI"@en .
 
-aiup:EnvironmentOfUse a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    skos:exactMatch airo:EnvironmentOfUse ;
+aiup:LocalityOfUse a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    skos:exactMatch airo:LocalityOfUse ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Environment Of Use" ;
-    rdfs:comment "The environment in which the AI system is used"@en ;
-    skos:definition "The environment in which the AI system is used"@en .
+    rdfs:label "Locality Of Use" ;
+    rdfs:comment "The locality in which the AI system is used"@en ;
+    skos:definition "The locality in which the AI system is used"@en .
 
 aiup:Control a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     skos:exactMatch airo:Control ;
