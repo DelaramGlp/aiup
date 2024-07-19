@@ -75,7 +75,7 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:AIComponent ;
     skos:member aiup:Domain ;
     skos:member aiup:Purpose ;
-    skos:member aiup:Capability ;
+    skos:member aiup:AICapability ;
     skos:member aiup:AISubject ;
     skos:member aiup:EnvironmentOfUse ;
     skos:member aiup:Deployer ;
@@ -235,10 +235,10 @@ aiup:Purpose a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:comment "The end goal for which an entity is used or an action is taken"@en ;
     skos:definition "The end goal for which an entity is used or an action is taken"@en .
 
-aiup:Capability a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    skos:exactMatch airo:apability ;
+aiup:AICapability a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    skos:exactMatch airo:AICapability ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Capability" ;
+    rdfs:label "AI Capability" ;
     rdfs:comment "Capabilities implemented within an AI system to materialize its purposes"@en ;
     skos:definition "Capabilities implemented within an AI system to materialize its purposes"@en .
 
