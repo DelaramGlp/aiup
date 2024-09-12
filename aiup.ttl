@@ -77,13 +77,14 @@ aiup:aiup-ttl a profile:ResourceDescriptor ;
     skos:member aiup:AIModel ;
     skos:member aiup:GPAIModel ;
     skos:member aiup:Dataset;
+    skos:member aiup:Data ;
     skos:member aiup:Domain ;
     skos:member aiup:Purpose ;
     skos:member aiup:AICapability ;
     skos:member aiup:AISubject ;
     skos:member aiup:LocalityOfUse ;
     skos:member aiup:ReportRecipient ;
-    skos:member aiup:Control ;
+    skos:member aiup:RiskControl ;
     skos:member odrl:dateTime . 
 
 #---------------------------------------------------------
@@ -195,13 +196,7 @@ aiup:GPAIModel a odrl:Asset, skos:Concept ;
     rdfs:Comment "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en ;
     skos:definition "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications."@en .
 
-aiup:Dataset a odrl:Asset, skos:Concept ;
-    skos:exactMatch dcat:Dataset ;
-    rdfs:subClassOf aiup:AIComponent ;
-    rdfs:isDefinedBy aiup: ;
-    rdfs:label "Dataset"@en ;
-    rdfs:Comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations.."@en ;
-    skos:definition "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en . 
+
 
 #---------------------------------------------------------
 #                       Operator
@@ -269,6 +264,7 @@ aiup:AICapability a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:comment "Capabilities implemented within an AI system to materialize its purposes"@en ;
     skos:definition "Capabilities implemented within an AI system to materialize its purposes"@en .
 
+
 aiup:Deployer a odrl:LeftOperand, owl:NamedIndividual .
 
 aiup:AISubject a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
@@ -285,12 +281,20 @@ aiup:LocalityOfUse a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:comment "The locality in which the AI system is used"@en ;
     skos:definition "The locality in which the AI system is used"@en .
 
-aiup:Control a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    skos:exactMatch airo:Control ;
+aiup:RiskControl a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    skos:exactMatch airo:RiskControl ;
     rdfs:isDefinedBy aiup: ;
-    rdfs:label "Control" ;
+    rdfs:label "Risk Control" ;
     rdfs:comment "A measure that maintains and/or modifies risk"@en ;
     skos:definition "A measure that maintains and/or modifies risk"@en .
+
+
+aiup:Data a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    skos:exactMatch airo:Data ;
+    rdfs:isDefinedBy aiup: ;
+    rdfs:label "Data"@en ;
+    skos:definition "Refers to dataset and the broad concept of data."@en ; 
+    rdfs:Comment "Refers to dataset and the broad concept of data."@en .
 
 aiup:ReportRecipient a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy aiup: ;
