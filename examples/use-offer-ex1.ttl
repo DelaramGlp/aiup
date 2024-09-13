@@ -48,7 +48,7 @@ odrl:permission [
           dct:title "User training to address over-reliance" ;
           odrl:action aiup:ImplementControl ;
           odrl:constraint [
-              odrl:leftOperand aiup:Control  ;
+              odrl:leftOperand aiup:RiskControl  ;
               odrl:operator aiup:seq ;
               odrl:rightOperand vair:Training  ]  ]  ] .     
 
