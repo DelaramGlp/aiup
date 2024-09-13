@@ -115,6 +115,62 @@ This is a placeholder text for the abstract. The abstract should contain a coupl
    </ul>
 </div>   </span>
 
+<table>
+   <tr>
+       <th colspan="1">AIUP Profile Requirements Specification Document</th>
+   </tr>
+   <tr>
+       <td class="header">1. Purpose</td>
+   </tr>
+   <tr>
+       <td>The purpose of this ODRL profile is to support specification of policies that express the conditions of using an AI system aligned with the requirements of the EU AI Act.</td>
+   </tr>
+   <tr>
+       <td class="header">2. Scope</td>
+   </tr>
+   <tr>
+       <td>The scope of AIUP is limited to policies specifying intended and precluded uses of AI systems. In terms of the conditions for using a system as intended, the scope is limited to specification of human oversight measures and reporting requirements.</td>
+   </tr>
+   <tr>
+       <td class="header">3. Implementation Language</td>
+   </tr>
+   <tr>
+       <td>OWL, SKOS, ODRL</td>
+   </tr>
+   <tr>
+       <td class="header">4. Key Uses</td>
+   </tr>
+   <tr>
+       <td>
+           USE 1. Expressing and communicating use policies, including those that describe intended uses, conditions of use, and precluded uses by AI providers.<br>
+           USE 2. Comparing multiple use policies.<br>
+           USE 3. Expressing AI agreements between AI providers and deployers.<br>
+           USE 4. Investigating and auditing compliance with use policies.<br>
+           USE 5. Identifying misuses of the system based on the agreements.
+       </td>
+   </tr>
+   <tr>
+       <td class="header">5. Ontology Functional Requirements</td>
+   </tr>
+   <tr>
+       <td class="header">a. Non-Functional Requirements</td>
+   </tr>
+   <tr>
+       <td>NFR 1. The profile shall be published online with standard documentation.</td>
+   </tr>
+   <tr>
+       <td class="header">b. Functional Requirements</td>
+   </tr>
+   <tr>
+       <td>
+           CQ1. What is the intended use(s) of the AI system?<br>
+           CQ2. What is the precluded use(s) of the AI system?<br>
+           CQ3. To use the system as intended, what human oversight measures should be implemented by the deployer?<br>
+           CQ4. What are the reporting obligations of the deployer?
+       </td>
+   </tr>
+</table>
+
    <div>
    
    <center>
@@ -1419,12 +1475,21 @@ This section provides details for each class and property defined by AI Use Poli
   <div id="references">
 <h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-Add your references here. It is recommended to have them as a list.</span>
+   1. European Parliament, Council of the European Union. Regulation
+   (EU) 2024/1689 of the European Parliament and of the Council of 13
+   June 2024 laying down harmonised rules on artificial intelligence and
+   amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU)
+   No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144
+   and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828
+   (Artificial Intelligence Act). June 2024. url: http : / / data . europa .
+   eu/eli/reg/2024/1689/oj.</span>
 
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>
+This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 813497 (PROTECT ITN), as part of the ADAPT SFI Centre for Digital Media Technology is funded by Science Foundation Ireland through the SFI Research Centres Programme and is co-funded under the European Regional Development Fund (ERDF) through Grant#13/RC/2106_P2.  
+<br>
 The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
 </div>
 
